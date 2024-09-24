@@ -4,13 +4,13 @@ export default function About() {
       <section className="mb-8">
         <h2 className="text-2xl  mb-4">Who I Am</h2>
         <p className="text-lg mb-4">
-          Hello! I'm [Your Name], a passionate UX designer and front-end
+          Hello! I&apos;m [Your Name], a passionate UX designer and front-end
           developer with [X] years of experience creating intuitive and engaging
           web experiences. I love solving complex problems and turning ideas
           into reality through clean, efficient code and user-centered design.
         </p>
         <p className="text-lg">
-          When I'm not coding or designing, you can find me [mention some
+          When I&apos;m not coding or designing, you can find me [mention some
           hobbies or interests]. I believe that these diverse interests help
           fuel my creativity and bring fresh perspectives to my work.
         </p>

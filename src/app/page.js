@@ -26,15 +26,16 @@ export default function Home() {
     <div className="min-h-screen">
       <section className="flex items-center justify-center flex-col max-w-prose">
         <p className="text-2xl mb-8">
-          I’m a developer and designer who enjoys creating user-centered digital
-          experiences that combine thoughtful design with functional code.
+          I&apos;m a developer and designer who enjoys creating user-centered
+          digital experiences that combine thoughtful design with functional
+          code.
         </p>
         <p>
           With experience in both UX design and front-end development, I
           collaborate closely with other designers and developers to bring
           projects to life. I value accountability, curiosity, and a systematic
           approach to solving problems, always aiming to create solutions that
-          improve people’s everyday lives
+          improve people&apos;s everyday lives
         </p>
       </section>
     </div>
