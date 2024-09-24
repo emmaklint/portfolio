@@ -12,8 +12,8 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['Work Sans', 'sans serif']
-      }
+        sans: ["Playfair Display", "serif"],
+      },
     },
   },
   plugins: [],
