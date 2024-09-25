@@ -12,7 +12,8 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ["Playfair Display", "serif"],
+        sans: ["var(--font-inter)"],
+        serif: ["var(--font-playfair)"],
       },
     },
   },

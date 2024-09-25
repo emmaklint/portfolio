@@ -1,50 +1,39 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <>
-      <section className="mb-8">
-        <h2 className="text-2xl  mb-4">Who I Am</h2>
-        <p className="text-lg mb-4">
-          Hello! I&apos;m [Your Name], a passionate UX designer and front-end
-          developer with [X] years of experience creating intuitive and engaging
-          web experiences. I love solving complex problems and turning ideas
-          into reality through clean, efficient code and user-centered design.
-        </p>
-        <p className="text-lg">
-          When I&apos;m not coding or designing, you can find me [mention some
-          hobbies or interests]. I believe that these diverse interests help
-          fuel my creativity and bring fresh perspectives to my work.
-        </p>
-      </section>
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">My Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="bg-gray-100 p-4 rounded">
-            <h3 className="font-semibold mb-2">UX Design</h3>
-            <ul className="list-disc list-inside">
-              <li>User Research</li>
-              <li>Wireframing</li>
-              <li>Prototyping</li>
-              <li>Usability Testing</li>
-            </ul>
-          </div>
-          <div className="bg-gray-100 p-4 rounded">
-            <h3 className="font-semibold mb-2">Front-End Development</h3>
-            <ul className="list-disc list-inside">
-              <li>HTML5 & CSS3</li>
-              <li>JavaScript (ES6+)</li>
-              <li>React</li>
-              <li>Next.js</li>
-            </ul>
-          </div>
-          <div className="bg-gray-100 p-4 rounded">
-            <h3 className="font-semibold mb-2">Tools & Technologies</h3>
-            <ul className="list-disc list-inside">
-              <li>Figma</li>
-              <li>Adobe XD</li>
-              <li>Git</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </div>
+      <section className="flex items-center justify-between">
+        <div>
+          <p className="text-lg mb-4 max-w-prose">
+            I’m a UX design and front-end development consultant with a Master’s
+            Degree in Media Technology and Interaction Design from KTH. For the
+            past 6 years, I’ve worked in various roles, from building design
+            systems and landing pages as a developer to enhancing onboarding
+            experiences as a designer. In my current role, I combine my skills
+            in both design and development to create seamless digital
+            experiences that prioritize user needs and functionality.
+          </p>
+          <p className="text-lg mb-4 max-w-prose">
+            I enjoy collaborating with teams across disciplines and working
+            closely with users to gather continuous feedback, ensuring that
+            every project I take on is both effective and user-centered. My
+            approach blends technical problem-solving with thoughtful design,
+            resulting in solutions that make a real impact.
+          </p>
+          <p className="text-lg max-w-prose">
+            Outside of work, I love reading, cooking, and going on adventures
+            with my family. I value accountability, curiosity, and a systematic
+            approach to my work.”
+          </p>
+        </div>
+        <div className="pl-8">
+          <Image
+            src="/emma.jpeg"
+            alt="Description of my image"
+            width={300}
+            height={300}
+          />
         </div>
       </section>
     </>

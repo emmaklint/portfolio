@@ -1,5 +1,19 @@
+import { Inter, Playfair_Display } from "next/font/google";
+
 import Navbar from "../components/Navbar";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 export const metadata = {
   title: "Emma Klint",
@@ -8,16 +22,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="bg-indigo-50 min-h-screen flex flex-col">
         <Navbar />
-        <main className="p-8">{children}</main>
+        <main className="flex-grow flex items-center justify-center px-4 py-8">
+          <div className="w-full max-w-4xl">{children}</div>
+        </main>
       </body>
     </html>
   );

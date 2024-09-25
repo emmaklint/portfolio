@@ -10,7 +10,9 @@ const NavLink = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`hover:text-gray-300 text-2xl ${isActive ? "font-bold" : ""}`}
+      className={`font-serif hover:text-indigo-500 text-2xl ${
+        isActive ? "text-decoration-line: underline underline-offset-8" : ""
+      }`}
     >
       {children}
     </Link>
@@ -20,8 +22,8 @@ const Navbar = () => {
   return (
     <nav className="p-8">
       <div className="flex justify-between items-center">
-        <Link href="/" className="text-3xl">
-          Emma Klint{" "}
+        <Link href="/" className="text-3xl font-serif">
+          Emma Klint
         </Link>
         <ul className="flex space-x-4">
           <li>
@@ -32,9 +34,6 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink href="/work">Work</NavLink>
-          </li>
-          <li>
-            <NavLink href="/contact">Contact</NavLink>
           </li>
         </ul>
       </div>
