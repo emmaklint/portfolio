@@ -27,9 +27,6 @@ const Navbar = () => {
         </Link>
         <ul className="flex space-x-4">
           <li>
-            <NavLink href="/">Home</NavLink>
-          </li>
-          <li>
             <NavLink href="/about">About</NavLink>
           </li>
           <li>
