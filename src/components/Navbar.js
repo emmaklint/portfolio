@@ -10,7 +10,7 @@ const NavLink = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`font-serif hover:text-orange-700 text-2xl ${
+      className={`font-serif hover:text-orange-700 text-base md:text-2xl ${
         isActive ? "text-decoration-line: underline underline-offset-8" : ""
       }`}
     >
@@ -20,9 +20,9 @@ const NavLink = ({ href, children }) => {
 };
 const Navbar = () => {
   return (
-    <nav className="p-8">
+    <nav className="p-4">
       <div className="flex justify-between items-center">
-        <Link href="/" className="text-3xl font-serif">
+        <Link href="/" className="text-xl md:text-3xl font-serif">
           Emma Klint
         </Link>
         <ul className="flex space-x-4">

@@ -36,13 +36,13 @@ export default function ProjectPage({ params }) {
   }
 
   return (
-    <>
-      <Link href="/" className="text-blue-500 hover:underline mb-4 block">
+    <div>
+      <Link href="/" className="text-amber-700 hover:underline mb-4 block">
         &larr; Back to Home
       </Link>
-      <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+      <h1 className="text-2xl font-bold mb-4 font-serif">{project.title}</h1>
       <p className="text-xl mb-8">{project.description}</p>
       <div className="whitespace-pre-line">{project.fullDescription}</div>
-    </>
+    </div>
   );
 }
