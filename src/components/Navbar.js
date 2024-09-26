@@ -10,7 +10,7 @@ const NavLink = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`font-serif hover:text-indigo-500 text-2xl ${
+      className={`font-serif hover:text-orange-700 text-2xl ${
         isActive ? "text-decoration-line: underline underline-offset-8" : ""
       }`}
     >

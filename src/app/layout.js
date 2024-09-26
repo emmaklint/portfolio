@@ -1,18 +1,19 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Sans_3, Libre_Baskerville } from "next/font/google";
 
 import Navbar from "../components/Navbar";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSansPro = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-source-sans-pro",
 });
 
-const playfair = Playfair_Display({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-libre-baskerville",
+  weight: ["400", "700"], // Libre Baskerville is available in regular and bold
 });
 
 export const metadata = {
@@ -22,8 +23,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-indigo-50 min-h-screen flex flex-col">
+    <html
+      lang="en"
+      className={`${sourceSansPro.variable} ${libreBaskerville.variable}`}
+    >
+      <body className=" min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow flex items-center justify-center px-4 py-8">
           <div className="w-full max-w-4xl">{children}</div>
