@@ -89,7 +89,7 @@ const Navbar = () => {
         <Link href="/" className="text-xl md:text-3xl font-serif">
           Emma Klint
         </Link>
-        <ul className="hidden md:flex flex-1 justify-center items-center space-x-4">
+        <ul className="hidden md:flex flex-1 justify-end items-center space-x-4">
           <li>
             <NavLink href="/about">About</NavLink>
           </li>
