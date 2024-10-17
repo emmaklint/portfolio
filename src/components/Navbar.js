@@ -20,8 +20,8 @@ const NavLink = ({ href, children }) => {
 };
 const Navbar = () => {
   return (
-    <nav className="p-4">
-      <div className="flex justify-between items-center">
+    <nav>
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="text-xl md:text-3xl font-serif">
           Emma Klint
         </Link>
@@ -32,6 +32,9 @@ const Navbar = () => {
           <li>
             <NavLink href="/work">Work</NavLink>
           </li>
+          {/* <li>
+            <NavLink href="/blog">Blog</NavLink>
+          </li> */}
         </ul>
       </div>
     </nav>
