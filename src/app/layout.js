@@ -1,19 +1,20 @@
-import { Source_Sans_3, Libre_Baskerville } from "next/font/google";
+import { Work_Sans, Libre_Baskerville } from "next/font/google";
 
 import Navbar from "../components/Navbar";
 import "./globals.css";
 
-const sourceSansPro = Source_Sans_3({
+const workSans = Work_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-source-sans-pro",
+  variable: "--font-work-sans",
+  weight: ["400", "700"], // Add the weights you need
 });
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-libre-baskerville",
-  weight: ["400", "700"], // Libre Baskerville is available in regular and bold
+  weight: ["400", "700"], // Add the weights you need
 });
 
 export const metadata = {
@@ -25,12 +26,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${sourceSansPro.variable} ${libreBaskerville.variable}`}
+      className={`${workSans.variable} ${libreBaskerville.variable}`}
     >
-      <body className=" min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col items-center overflow-y-scroll">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center px-4 py-8">
-          <div className="w-full max-w-4xl">{children}</div>
+        <main className="flex-grow flex justify-center pt-16 max-w-screen-xl px-4 md:px-8">
+          {children}
         </main>
       </body>
     </html>

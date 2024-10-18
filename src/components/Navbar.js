@@ -85,8 +85,8 @@ const Navbar = () => {
 
   return (
     <nav className="w-full">
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-        <Link href="/" className="text-xl md:text-3xl font-serif">
+      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-8">
+        <Link href="/" className="text-xl md:text-3xl font-serif font-bold">
           Emma Klint
         </Link>
         <ul className="hidden md:flex flex-1 justify-end items-center space-x-4">
