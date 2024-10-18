@@ -20,7 +20,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2">
             <p className="mb-2 md:mb-4 font-sans text-lg">
-              I hold a Master’s Degree in Media Technology and Interaction
+              I hold a Master&apos;s Degree in Media Technology and Interaction
               Design from KTH Royal Institute of Technology, where I developed a
               technology. As a design and front-end development consultant, I
               strong foundation in user-centered design and cutting-edge bridge
@@ -33,7 +33,7 @@ export default function About() {
             </p>
             <p className="mb-2 md:mb-4 font-sans text-lg">
               I thrive in collaborative environments, where teams work across
-              disciplines to bring ideas to life. I’m passionate about
+              disciplines to bring ideas to life. I&apos;m passionate about
               continuous feedback loops, incorporating real-time insights from
               users to refine and improve designs. I believe that the best
               solutions emerge when creativity and technical insights are
@@ -42,9 +42,9 @@ export default function About() {
             </p>
             <p className="mb-2 md:mb-4 font-sans text-lg">
               Outside of work, I enjoy spending time with my family, exploring
-              new hobbies, and taking on creative projects. Whether it’s
+              new hobbies, and taking on creative projects. Whether it&apos;s
               experimenting with new tools, diving into a good book, or enjoying
-              outdoor adventures, I’m always looking for new ways to stay
+              outdoor adventures, I&apos;m always looking for new ways to stay
               inspired and curious.
             </p>
           </div>
