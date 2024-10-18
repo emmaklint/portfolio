@@ -60,7 +60,7 @@ export default function About() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-2 font-serif">
-                Tools I've used
+                Tools I&apos;ve used
               </h3>
               <ul className="text-lg">
                 {tools.map((tool) => {
