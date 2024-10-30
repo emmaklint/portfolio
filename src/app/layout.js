@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col items-center overflow-y-scroll">
         <Navbar />
-        <main className="flex-grow flex justify-center pt-16 max-w-screen-xl px-4 md:px-8">
+        <main className="flex-grow flex justify-center pt-16 max-w-screen-xl w-full px-4 md:px-8">
           {children}
         </main>
       </body>

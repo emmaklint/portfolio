@@ -1,65 +1,100 @@
-const projects = [
-  {
-    id: "1",
-    client: "EcoTrack",
-    title: "Sustainable Living App",
-    description:
-      "A React Native mobile app designed to help users reduce their carbon footprint through daily habit tracking and personalized eco-friendly suggestions.",
-    technologies: ["React Native", "Redux", "Node.js", "MongoDB"],
-  },
-  {
-    id: "2",
-    client: "Artisanal",
-    title: "E-commerce Platform Redesign",
-    description:
-      "A complete UX overhaul and front-end implementation for an artisanal goods marketplace, focusing on improved navigation and a streamlined checkout process.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Stripe API"],
-  },
-  {
-    id: "3",
-    client: "DataViz",
-    title: "Dashboard",
-    description:
-      "An interactive data visualization dashboard built with React and D3.js, allowing users to explore and analyze complex datasets through intuitive charts and filters.",
-    technologies: ["React", "D3.js", "Node.js", "Express", "PostgreSQL"],
-  },
-  {
-    id: "2",
-    client: "EcoTrack",
-    title: "Sustainable Living App",
-    description:
-      "A React Native mobile app designed to help users reduce their carbon footprint through daily habit tracking and personalized eco-friendly suggestions.",
-    technologies: ["React Native", "Redux", "Node.js", "MongoDB"],
-  },
-];
+import notion, { worksDatabaseId } from "@/lib/notion";
+import Image from "next/image";
 
-export default function Work() {
+// Helper function to safely get Notion property text
+const getNotionProperty = (properties, propertyName, type = "rich_text") => {
+  const property = properties[propertyName];
+  if (!property) return null;
+
+  if (type === "title") {
+    return property.title[0]?.plain_text || null;
+  }
+
+  return property.rich_text[0]?.plain_text || null;
+};
+
+// Helper to get cover image URL
+const getCoverImage = (page) => {
+  if (!page.cover) return null;
+
+  // Handle external URLs
+  if (page.cover.type === "external") {
+    return page.cover.external.url;
+  }
+
+  // Handle uploaded files
+  if (page.cover.type === "file") {
+    return page.cover.file.url;
+  }
+
+  return null;
+};
+
+const getMultiSelect = (properties, propertyName) => {
+  return properties[propertyName]?.multi_select || [];
+};
+
+function Card({ page }) {
+  const client = getNotionProperty(page.properties, "Client");
+  const title = getNotionProperty(page.properties, "Title", "title");
+  const description = getNotionProperty(page.properties, "Description");
+  const coverImage = getCoverImage(page);
+  const tags = getMultiSelect(page.properties, "Tags");
+
+  return (
+    <div key={page.id} className="flex flex-col gap-2">
+      <div className="relative h-80 rounded-lg overflow-hidden">
+        {coverImage ? (
+          <Image
+            src={coverImage}
+            alt={title || "Project cover"}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="bg-orange-300 h-full" />
+        )}
+      </div>
+
+      {client && <span className=" text-xs">{client}</span>}
+      {title && (
+        <h2 className="text-base md:text-xl font-serif font-bold">{title}</h2>
+      )}
+      {description && <p className="text-gray-600">{description}</p>}
+      <div>
+        {tags.map((tag, index) => (
+          <span key={index} className="text-sm">
+            {tag.name}
+            {index !== tags.length - 1 && <span className="mx-2">•</span>}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default async function Work() {
+  const response = await notion.databases.query({
+    database_id: worksDatabaseId,
+    sorts: [
+      {
+        property: "Order",
+        direction: "ascending",
+      },
+    ],
+  });
+
+  const pages = response.results;
+
   return (
     <>
-      <section className="">
+      <section className="w-full">
         <h2 className="text-2xl font-bold mb-2 md:mb-8 font-serif">
           What I have been working on lately.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-          {projects.map((project) => (
-            <div key={project.id} className="flex flex-col gap-2">
-              <div className="bg-amber-400 p-4 h-80 rounded-lg" />
-              <span className="font-serif">{project.client}</span>
-              <h2 className="text-base md:text-xl font-serif font-bold">
-                {project.title}
-              </h2>
-              <p className="text-gray-600">{project.description}</p>
-              <div className="">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="text-sm">
-                    {tech}
-                    {index !== project.technologies.length - 1 && (
-                      <span className="mx-2">•</span>
-                    )}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {pages.map((page) => (
+            <Card key={page.id} page={page} />
           ))}
         </div>
       </section>

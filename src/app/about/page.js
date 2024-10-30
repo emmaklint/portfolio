@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <>
-      <section className="">
+      <section>
         <h2 className="text-2xl font-bold mb-2 md:mb-8 font-serif">
           Let me introduce myself.
         </h2>
@@ -22,14 +22,15 @@ export default function About() {
             <p className="mb-2 md:mb-4 font-sans text-lg">
               I hold a Master&apos;s Degree in Media Technology and Interaction
               Design from KTH Royal Institute of Technology, where I developed a
-              technology. As a design and front-end development consultant, I
-              strong foundation in user-centered design and cutting-edge bridge
-              the gap between design and code, creating intuitive, seamless user
-              experiences. I specialize in crafting scalable design systems and
-              translating creative visions into functional, responsive
-              applications. My work is driven by a passion for both aesthetics
-              and functionality, ensuring that every project I touch not only
-              looks great but works perfectly across all devices.
+              fascination for the field of human-computer interaction. As a
+              design and front-end development consultant, I strong foundation
+              in user-centered design and cutting-edge bridge the gap between
+              design and code, creating intuitive, seamless user experiences. I
+              specialize in crafting scalable design systems and translating
+              creative visions into functional, responsive applications. My work
+              is driven by a passion for both aesthetics and functionality,
+              ensuring that every project I touch not only looks great but works
+              perfectly across all devices.
             </p>
             <p className="mb-2 md:mb-4 font-sans text-lg">
               I thrive in collaborative environments, where teams work across
