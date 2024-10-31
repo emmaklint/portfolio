@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Text = ({ text }) => {
   if (!text) return null;
 
