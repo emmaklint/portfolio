@@ -85,8 +85,8 @@ export default async function Work() {
       },
     ],
     filter: {
-      property: "Published",
-      checkbox: { equals: true },
+      property: "Status",
+      status: { equals: "Published" },
     },
   });
 
