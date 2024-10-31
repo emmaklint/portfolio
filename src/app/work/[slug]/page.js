@@ -1,6 +1,7 @@
 // src/app/work/[slug]/page.js
 import notion, { worksDatabaseId } from "@/lib/notion";
 import Image from "next/image";
+import NotionRenderer from "../../../components/NotionRenderer";
 
 export async function generateStaticParams() {
   const response = await notion.databases.query({
@@ -39,6 +40,10 @@ export default async function ProjectPage({ params }) {
   const client = page.properties.Client?.rich_text[0]?.plain_text;
   const coverImage = page.cover?.external?.url || page.cover?.file?.url;
 
+  const blocks = await notion.blocks.children.list({
+    block_id: page.id,
+  });
+
   return (
     <article className="mx-auto max-w-4xl p-4">
       {coverImage && (
@@ -57,6 +62,9 @@ export default async function ProjectPage({ params }) {
           <p>{description}</p>
         </div>
       )}
+      <div className="prose max-w-none">
+        <NotionRenderer blocks={blocks.results} />
+      </div>
     </article>
   );
 }
