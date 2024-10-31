@@ -31,6 +31,7 @@ const getCoverImage = (page) => {
   return null;
 };
 
+// Helper to get multi select
 const getMultiSelect = (properties, propertyName) => {
   return properties[propertyName]?.multi_select || [];
 };
@@ -41,6 +42,7 @@ function Card({ page }) {
   const description = getNotionProperty(page.properties, "Description");
   const coverImage = getCoverImage(page);
   const tags = getMultiSelect(page.properties, "Tags");
+  const slug = getNotionProperty(page.properties, "Slug");
 
   return (
     <div key={page.id} className="flex flex-col gap-2">
@@ -70,7 +72,7 @@ function Card({ page }) {
           </span>
         ))}
       </div>
-      <Link href={`/work/${page.id}`}>Read more</Link>
+      {slug && <Link href={`/work/${slug}`}>Read more</Link>}
     </div>
   );
 }
