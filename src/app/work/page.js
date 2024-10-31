@@ -1,5 +1,6 @@
 import notion, { worksDatabaseId } from "@/lib/notion";
 import Image from "next/image";
+import Link from "next/link";
 
 // Helper function to safely get Notion property text
 const getNotionProperty = (properties, propertyName, type = "rich_text") => {
@@ -69,6 +70,7 @@ function Card({ page }) {
           </span>
         ))}
       </div>
+      <Link href={`/work/${page.id}`}>Read more</Link>
     </div>
   );
 }
