@@ -84,6 +84,10 @@ export default async function Work() {
         direction: "ascending",
       },
     ],
+    filter: {
+      property: "Published",
+      checkbox: { equals: true },
+    },
   });
 
   const pages = response.results;
