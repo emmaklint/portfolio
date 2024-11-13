@@ -10,7 +10,7 @@ const Text = ({ text }) => {
     } = value;
 
     const classes = [
-      bold ? "font-bold" : "",
+      bold ? "font-semibold" : "",
       italic ? "italic" : "",
       strikethrough ? "line-through" : "",
       underline ? "underline" : "",
@@ -38,21 +38,21 @@ const Block = ({ block }) => {
 
     case "heading_1":
       return (
-        <h1 className="mb-4 text-3xl font-bold">
+        <h1 className="mb-2 text-3xl font-bold font-serif">
           <Text text={block.heading_1.rich_text} />
         </h1>
       );
 
     case "heading_2":
       return (
-        <h2 className="mb-3 text-2xl font-bold">
+        <h2 className="mb-3 text-2xl font-bold font-serif">
           <Text text={block.heading_2.rich_text} />
         </h2>
       );
 
     case "heading_3":
       return (
-        <h3 className="mb-3 text-xl font-bold">
+        <h3 className="mb-1 text-xl font-bold font-serif">
           <Text text={block.heading_3.rich_text} />
         </h3>
       );
@@ -86,7 +86,7 @@ const Block = ({ block }) => {
 
     case "callout":
       return (
-        <div className="my-4 p-4 bg-gray-100 rounded-lg flex">
+        <div className="my-4 p-4 bg-orange-10 0 rounded-lg flex">
           <div className="mr-4">{block.callout.icon?.emoji}</div>
           <div>
             <Text text={block.callout.rich_text} />
