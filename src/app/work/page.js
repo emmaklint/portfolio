@@ -1,6 +1,7 @@
 import notion, { worksDatabaseId } from "@/lib/notion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 // Helper function to safely get Notion property text
 const getNotionProperty = (properties, propertyName, type = "rich_text") => {
@@ -45,34 +46,48 @@ function Card({ page }) {
   const slug = getNotionProperty(page.properties, "Slug");
 
   return (
-    <div key={page.id} className="flex flex-col gap-2">
+    <div key={page.id} className="flex flex-col gap-6">
       <div className="relative h-80 rounded-lg overflow-hidden">
         {coverImage ? (
           <Image
             src={coverImage}
             alt={title || "Project cover"}
             fill
-            className="object-cover"
+            className="object-cover aspect-video"
           />
         ) : (
           <div className="bg-orange-300 h-full" />
         )}
       </div>
 
-      {client && <span className=" text-xs">{client}</span>}
-      {title && (
-        <h2 className="text-base md:text-xl font-serif font-bold">{title}</h2>
-      )}
-      {description && <p className="text-gray-600">{description}</p>}
-      <div>
-        {tags.map((tag, index) => (
-          <span key={index} className="text-sm">
-            {tag.name}
-            {index !== tags.length - 1 && <span className="mx-2">•</span>}
-          </span>
-        ))}
+      <div className="flex flex-col gap-2">
+        {client && <span className="text-sm">{client}</span>}
+        {title && (
+          <h2 className="text-base md:text-xl font-serif font-bold">{title}</h2>
+        )}
+        {description && <p className="text-gray-600">{description}</p>}
+        <div className="">
+          {tags.map((tag, index) => (
+            <span
+              key={index}
+              className="text-sm bg-orange-100 mr-2 px-2 py-1 text-orange-600 font-medium rounded-lg"
+            >
+              {tag.name}
+              {/* {index !== tags.length - 1 && <span className="mx-2">•</span>} */}
+            </span>
+          ))}
+        </div>
       </div>
-      {slug && <Link href={`/work/${slug}`}>Read more</Link>}
+      {slug && (
+        <Link
+          href={`/work/${slug}`}
+          className="group inline-flex items-center gap-1 font-medium font-serif text-gray-800 transition-colors duration-200 hover:text-orange-700
+"
+        >
+          Read more
+          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+        </Link>
+      )}
     </div>
   );
 }

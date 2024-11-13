@@ -7,7 +7,7 @@ const workSans = Work_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-work-sans",
-  weight: ["400", "700"], // Add the weights you need
+  weight: ["400", "500", "700"], // Add the weights you need
 });
 
 const libreBaskerville = Libre_Baskerville({
