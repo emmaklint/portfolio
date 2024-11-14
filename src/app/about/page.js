@@ -60,17 +60,18 @@ export default function About() {
               />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2 font-serif">
-                Tools I&apos;ve used
-              </h3>
+              <h3 className="text-xl font-bold mb-2 font-serif">My toolbox</h3>
               <ul className="text-lg">
-                {tools.map((tool) => {
+                {tools.map((tool, index) => {
                   return (
-                    <li key={tool} className="inline-block ">
-                      {tool}
-                      {tool !== tools[tools.length - 1] && (
-                        <span className="mx-2">•</span>
-                      )}
+                    <li key={index} className="inline-block ">
+                      <span
+                        key={index}
+                        className="text-sm bg-orange-100 mr-2 mb-2 px-2 py-1 text-orange-600 font-medium rounded-lg"
+                      >
+                        {tool}
+                        {/* {index !== tags.length - 1 && <span className="mx-2">•</span>} */}
+                      </span>
                     </li>
                   );
                 })}
