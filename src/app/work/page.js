@@ -105,6 +105,7 @@ export default async function Work() {
       property: "Status",
       status: { equals: "Published" },
     },
+    next: { revalidate: 3000 },
   });
 
   const pages = response.results;

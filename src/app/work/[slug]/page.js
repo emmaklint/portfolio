@@ -21,6 +21,7 @@ async function getPageFromSlug(slug) {
       rich_text: {
         equals: slug,
       },
+      next: { revalidate: 3000 },
     },
   });
 
