@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+export const revalidate = 3000; // Add this at the top
+
 // Helper function to safely get Notion property text
 const getNotionProperty = (properties, propertyName, type = "rich_text") => {
   const property = properties[propertyName];
@@ -105,7 +107,6 @@ export default async function Work() {
       property: "Status",
       status: { equals: "Published" },
     },
-    next: { revalidate: 3000 },
   });
 
   const pages = response.results;

@@ -3,6 +3,8 @@ import notion, { worksDatabaseId } from "@/lib/notion";
 import Image from "next/image";
 import NotionRenderer from "../../../components/NotionRenderer";
 
+export const revalidate = 3000; // Add this at the top
+
 export async function generateStaticParams() {
   const response = await notion.databases.query({
     database_id: worksDatabaseId,
@@ -21,7 +23,6 @@ async function getPageFromSlug(slug) {
       rich_text: {
         equals: slug,
       },
-      next: { revalidate: 3000 },
     },
   });
 
