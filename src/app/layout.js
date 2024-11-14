@@ -7,14 +7,7 @@ const workSans = Work_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-work-sans",
-  weight: ["400", "500", "600", "700"], // Add the weights you need
-});
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-libre-baskerville",
-  weight: ["400", "700"], // Add the weights you need
+  weight: ["400", "600", "700"],
 });
 
 export const metadata = {
@@ -24,13 +17,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${workSans.variable} ${libreBaskerville.variable}`}
-    >
+    <html lang="en" className={`${workSans.variable}`}>
       <body className="min-h-screen flex flex-col items-center overflow-y-scroll">
         <Navbar />
-        <main className="flex-grow flex justify-center pt-16 max-w-screen-xl w-full px-4 md:px-8">
+        <main className="flex-grow flex justify-center pt-4 md:pt-16 max-w-screen-xl w-full px-4 md:px-8">
           {children}
         </main>
       </body>

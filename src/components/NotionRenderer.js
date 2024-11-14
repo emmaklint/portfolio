@@ -49,21 +49,21 @@ const Block = ({ block }) => {
 
     case "heading_1":
       return (
-        <h1 className="mb-2 text-3xl font-bold font-serif">
+        <h1 className="mb-2 text-3xl font-bold">
           <Text text={block.heading_1.rich_text} />
         </h1>
       );
 
     case "heading_2":
       return (
-        <h2 className="mb-3 text-2xl font-bold font-serif">
+        <h2 className="mb-3 text-2xl font-semibold">
           <Text text={block.heading_2.rich_text} />
         </h2>
       );
 
     case "heading_3":
       return (
-        <h3 className="mb-1 text-xl font-bold font-serif">
+        <h3 className="mb-1 text-xl font-semibold">
           <Text text={block.heading_3.rich_text} />
         </h3>
       );
@@ -163,5 +163,5 @@ export default function NotionRenderer({ blocks }) {
     }
   });
 
-  return <div className="notion-content">{renderedBlocks}</div>;
+  return <div className="notion-content w-full">{renderedBlocks}</div>;
 }

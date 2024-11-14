@@ -14,7 +14,7 @@ export default function About() {
   return (
     <>
       <section>
-        <h2 className="text-2xl font-bold mb-2 md:mb-8 font-serif">
+        <h2 className="text-2xl font-bold mb-2 md:mb-8">
           Let me introduce myself.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -60,7 +60,7 @@ export default function About() {
               />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2 font-serif">My toolbox</h3>
+              <h3 className="text-xl font-bold mb-2 ">My toolbox</h3>
               <ul className="text-lg">
                 {tools.map((tool, index) => {
                   return (

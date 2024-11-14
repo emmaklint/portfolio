@@ -64,9 +64,7 @@ function Card({ page }) {
 
       <div className="flex flex-col gap-2">
         {client && <span className="text-sm">{client}</span>}
-        {title && (
-          <h2 className="text-base md:text-xl font-serif font-bold">{title}</h2>
-        )}
+        {title && <h2 className="text-base md:text-xl font-bold">{title}</h2>}
         {description && <p className="text-gray-600">{description}</p>}
         <div className="">
           {tags.map((tag, index) => (
@@ -83,7 +81,7 @@ function Card({ page }) {
       {slug && (
         <Link
           href={`/work/${slug}`}
-          className="group inline-flex items-center gap-1 font-medium font-serif text-gray-800 transition-colors duration-200 hover:text-orange-700
+          className="group inline-flex items-center gap-1 font-medium text-gray-800 transition-colors duration-200 hover:text-orange-700
 "
         >
           Read more
@@ -114,7 +112,7 @@ export default async function Work() {
   return (
     <>
       <section className="w-full">
-        <h2 className="text-2xl font-bold mb-2 md:mb-8 font-serif">
+        <h2 className="text-2xl font-bold mb-2 md:mb-8">
           What I have been working on lately.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">

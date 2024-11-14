@@ -11,7 +11,7 @@ const NavLink = ({ href, children, onClick }) => {
   return (
     <Link
       href={href}
-      className={`font-serif hover:text-orange-700 text-4xl md:text-2xl ${
+      className={` font-semibold hover:text-orange-700 text-4xl md:text-2xl ${
         isActive ? "text-decoration-line: underline underline-offset-8" : ""
       }`}
       onClick={onClick}
@@ -31,7 +31,7 @@ const DrawerMenu = ({ isOpen, onClose }) => {
       <div className="relative p-4 h-full flex flex-col justify-center">
         <Link
           href="/"
-          className="text-xl md:text-3xl font-serif absolute top-4 left-4"
+          className="text-xl md:text-3xl absolute top-4 left-4"
           onClick={onClose}
         >
           Emma Klint
@@ -85,8 +85,8 @@ const Navbar = () => {
 
   return (
     <nav className="w-full">
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-8">
-        <Link href="/" className="text-xl md:text-3xl font-serif font-bold">
+      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4 md:p-8">
+        <Link href="/" className="text-xl md:text-3xl font-bold">
           Emma Klint
         </Link>
         <ul className="hidden md:flex flex-1 justify-end items-center space-x-4">

@@ -47,11 +47,11 @@ export default async function ProjectPage({ params }) {
   });
 
   return (
-    <article className="mx-auto max-w-4xl p-4 flex flex-col gap-8 items-center">
-      <header className="flex flex-col items-center">
+    <section className="flex flex-col items-center gap-8 w-screen px-4 md:px-0">
+      <div className="flex flex-col items-center">
         {client && <span className="text-gray-500 text-sm mb-2">{client}</span>}
-        <h1 className="text-2xl font-serif font-bold">{title}</h1>
-      </header>
+        <h1 className="text-xl md:text-3xl font-bold">{title}</h1>
+      </div>
       <div className="relative aspect-video h-96 rounded-lg overflow-hidden">
         {coverImage ? (
           <Image
@@ -65,9 +65,9 @@ export default async function ProjectPage({ params }) {
         )}
       </div>
 
-      <div className="max-w-prose">
+      <div className="w-full max-w-prose">
         <NotionRenderer blocks={blocks.results} />
       </div>
-    </article>
+    </section>
   );
 }

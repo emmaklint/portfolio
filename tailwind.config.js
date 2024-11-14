@@ -13,7 +13,6 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-work-sans)"],
-        serif: ["var(--font-libre-baskerville)"],
       },
     },
   },
