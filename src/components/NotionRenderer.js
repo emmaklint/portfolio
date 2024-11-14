@@ -9,6 +9,17 @@ const Text = ({ text }) => {
       text,
     } = value;
 
+    if (code) {
+      return (
+        <code
+          key={i}
+          className="bg-orange-100 rounded px-1 py-0.5 font-mono text-sm text-orange-900"
+        >
+          {text.content}
+        </code>
+      );
+    }
+
     const classes = [
       bold ? "font-semibold" : "",
       italic ? "italic" : "",
@@ -99,6 +110,17 @@ const Block = ({ block }) => {
         <blockquote className="my-4 pl-4 border-l-4 border-gray-300 italic">
           <Text text={block.quote.rich_text} />
         </blockquote>
+      );
+
+    case "code":
+      return (
+        <div className="my-4 rounded-lg overflow-hidden">
+          <pre className="bg-stone-700 p-4 overflow-x-auto">
+            <code className="text-gray-100 font-mono text-sm">
+              {block.code.rich_text[0].text.content}
+            </code>
+          </pre>
+        </div>
       );
 
     default:
