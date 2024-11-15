@@ -1,7 +1,7 @@
 // src/app/work/[slug]/page.js
 import notion, { worksDatabaseId } from "@/lib/notion";
-import Image from "next/image";
 import NotionRenderer from "../../../components/NotionRenderer";
+import NotionImage from "@/components/NotionImage";
 
 export const revalidate = 3000; // Add this at the top
 
@@ -53,16 +53,12 @@ export default async function ProjectPage({ params }) {
         <h1 className="text-xl md:text-3xl font-bold">{title}</h1>
       </div>
       <div className="relative aspect-video h-96 rounded-lg overflow-hidden">
-        {coverImage ? (
-          <Image
-            src={coverImage}
-            alt={title || "Project cover"}
-            fill
-            className="object-cover"
-          />
-        ) : (
-          <div className="bg-orange-300 h-full" />
-        )}
+        <NotionImage
+          pageId={page.id}
+          alt={title || "Project cover"}
+          className="object-cover aspect-video"
+          initialUrl={page.cover?.file?.url || page.cover?.external?.url}
+        />
       </div>
 
       <div className="w-full max-w-prose">

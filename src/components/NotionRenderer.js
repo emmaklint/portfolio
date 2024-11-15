@@ -148,13 +148,13 @@ export default function NotionRenderer({ blocks }) {
           blocks[i + 1].type !== "numbered_list_item")
       ) {
         // Render the accumulated list items
-        const listType = block.type === "bulleted_list_item" ? "ul" : "ol";
+        const ListType = block.type === "bulleted_list_item" ? "ul" : "ol";
         renderedBlocks.push(
-          <listType key={`list-${i}`} className="my-4">
+          <ListType key={`list-${i}`} className="my-4">
             {currentListItems.map((item, j) => (
               <Block key={item.id || j} block={item} />
             ))}
-          </listType>
+          </ListType>
         );
         currentListItems = [];
       }

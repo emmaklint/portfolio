@@ -1,7 +1,7 @@
 import notion, { worksDatabaseId } from "@/lib/notion";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import NotionImage from "@/components/NotionImage";
 
 export const revalidate = 3000; // Add this at the top
 
@@ -43,23 +43,18 @@ function Card({ page }) {
   const client = getNotionProperty(page.properties, "Client");
   const title = getNotionProperty(page.properties, "Title", "title");
   const description = getNotionProperty(page.properties, "Description");
-  const coverImage = getCoverImage(page);
   const tags = getMultiSelect(page.properties, "Tags");
   const slug = getNotionProperty(page.properties, "Slug");
 
   return (
     <div key={page.id} className="flex flex-col gap-6">
       <div className="relative h-80 rounded-lg overflow-hidden">
-        {coverImage ? (
-          <Image
-            src={coverImage}
-            alt={title || "Project cover"}
-            fill
-            className="object-cover aspect-video"
-          />
-        ) : (
-          <div className="bg-orange-300 h-full" />
-        )}
+        <NotionImage
+          pageId={page.id}
+          alt={title || "Project cover"}
+          className="object-cover aspect-video"
+          initialUrl={page.cover?.file?.url || page.cover?.external?.url}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
