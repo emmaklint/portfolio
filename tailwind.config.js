@@ -5,11 +5,14 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        lightBackground: "#f5f4ef",
+        lightForeground: "#3a3838",
+        darkBackground: "#0a0a0a",
+        darkForeground: "ededed",
       },
       fontFamily: {
         sans: ["var(--font-work-sans)"],

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Sun, Moon, PartyPopper } from "lucide-react";
 
 const NavLink = ({ href, children, onClick }) => {
   const pathname = usePathname();
@@ -11,8 +12,8 @@ const NavLink = ({ href, children, onClick }) => {
   return (
     <Link
       href={href}
-      className={` font-semibold hover:text-orange-700 text-4xl md:text-2xl ${
-        isActive ? "text-decoration-line: underline underline-offset-8" : ""
+      className={`font-semibold hover:text-orange-700 text-4xl md:text-2xl ${
+        isActive ? "underline underline-offset-8" : ""
       }`}
       onClick={onClick}
     >
@@ -24,7 +25,7 @@ const NavLink = ({ href, children, onClick }) => {
 const DrawerMenu = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`fixed inset-y-0 right-0 z-50 w-full bg-white shadow-lg transform ${
+      className={`fixed inset-y-0 right-0 z-50 w-full bg-white dark:bg-gray-800 shadow-lg transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out`}
     >
@@ -38,7 +39,7 @@ const DrawerMenu = ({ isOpen, onClose }) => {
         </Link>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+          className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white"
           aria-label="Close menu"
         >
           <svg
@@ -78,10 +79,35 @@ const DrawerMenu = ({ isOpen, onClose }) => {
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [theme, setTheme] = useState("light"); // Default to light
+
+  useEffect(() => {
+    // Set theme based on user's system preference after component mounts
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    setTheme(preferredTheme);
+    document.documentElement.setAttribute("data-theme", preferredTheme);
+    document.body.setAttribute("data-theme-set", "true"); // Show body
+  }, []);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => {
+      // Cycle through themes
+      const themes = ["light", "dark", "party"];
+      const nextIndex = (themes.indexOf(prevTheme) + 1) % themes.length;
+      return themes[nextIndex];
+    });
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <nav className="w-full">
@@ -99,6 +125,21 @@ const Navbar = () => {
           {/* <li>
             <NavLink href="/blog">Blog</NavLink>
           </li> */}
+          <li>
+            <button
+              onClick={toggleTheme}
+              className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded p-2"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon size={20} />
+              ) : theme === "dark" ? (
+                <PartyPopper size={20} />
+              ) : (
+                <Sun size={20} />
+              )}
+            </button>
+          </li>
         </ul>
         <button
           onClick={toggleDrawer}
