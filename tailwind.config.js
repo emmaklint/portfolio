@@ -14,6 +14,7 @@ module.exports = {
       backgroundColor: {
         surface: "var(--surface-base)",
         action: "var(--action-base)",
+        visual: "var(--visual-base)",
       },
       textColor: {
         content: "var(--content-base)",

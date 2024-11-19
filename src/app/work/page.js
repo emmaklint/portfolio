@@ -29,7 +29,6 @@ const getImageUrl = (properties, propertyName) => {
 
   // Handle uploaded files
   if (property.type === "files") {
-    console.log(property.file);
     return property.files[0].file.url;
   }
 
@@ -45,26 +44,33 @@ function Card({ page }) {
   const client = getNotionProperty(page.properties, "Client");
   const title = getNotionProperty(page.properties, "Title", "title");
   const description = getNotionProperty(page.properties, "Description");
+  const cover = getNotionProperty(page.properties, "Cover");
   const tags = getMultiSelect(page.properties, "Tags");
   const slug = getNotionProperty(page.properties, "Slug");
   const imageUrl = getImageUrl(page.properties, "Image");
-  console.log(imageUrl);
 
   return (
     <div key={page.id} className="flex flex-col gap-6">
       <div className="relative rounded-lg overflow-hidden align-middle">
-        <NotionImage initialUrl={imageUrl} className="w-full object-cover" />
+        {/* <NotionImage initialUrl={imageUrl} className="w-full object-cover" /> */}
+
+        <div className="bg-visual w-full h-64 flex flex-center">
+          <div
+            className="text-content w-full fill-current flex justify-center items-center"
+            dangerouslySetInnerHTML={{ __html: cover }}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
         {client && <span className="text-sm">{client}</span>}
         {title && <h2 className="text-base md:text-xl font-bold">{title}</h2>}
-        {description && <p className="">{description}</p>}
+        {description && <p>{description}</p>}
         <div className="">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="text-sm bg-action mr-2 px-2 py-1 text-white font-medium rounded-lg"
+              className="text-sm bg-visual mr-2 px-2 py-1 text-content font-medium rounded-lg"
             >
               {tag.name}
               {/* {index !== tags.length - 1 && <span className="mx-2">•</span>} */}

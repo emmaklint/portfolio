@@ -6,12 +6,14 @@
   --action-base: rgb(242, 139, 130);
   --surface-base: rgb(253, 246, 243);
   --content-base: rgb(58, 58, 58);
+  --visual-base: rgb(243, 226, 225);
 }
 
 [data-theme="dark"] {
   --action-base: rgb(139, 62, 62);
   --surface-base: rgb(35, 35, 35);
   --content-base: rgb(255, 255, 255);
+  --visual-base: color-mix(in srgb, rgb(139, 62, 62) 30%, rgb(35, 35, 35));
 }
 
 /* Future themes can be added here */
@@ -19,6 +21,7 @@
   --action-base: rgb(242, 139, 130);
   --surface-base: rgb(255, 209, 193);
   --content-base: rgb(139, 62, 62);
+  --visual-base: color-mix(in srgb, rgb(242, 139, 130) 80%, rgb(255, 209, 193));
 }
 
 body {
@@ -37,6 +40,6 @@ body[data-theme-set] {
   }
 }
 
-p {
+/* p {
   color: color-mix(in srgb, var(--content-base) 80%, var(--surface-base));
-}
+} */

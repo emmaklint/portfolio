@@ -13,7 +13,7 @@ const Text = ({ text }) => {
       return (
         <code
           key={i}
-          className="bg-orange-100 rounded px-1 py-0.5 font-mono text-sm text-orange-900"
+          className="bg-visual rounded px-1 py-0.5 font-mono text-sm text-action"
         >
           {text.content}
         </code>
@@ -115,8 +115,8 @@ const Block = ({ block }) => {
     case "code":
       return (
         <div className="my-4 rounded-lg overflow-hidden">
-          <pre className="bg-stone-700 p-4 overflow-x-auto">
-            <code className="text-gray-100 font-mono text-sm">
+          <pre className="bg-visual p-4 overflow-x-auto">
+            <code className="text-content font-mono text-sm">
               {block.code.rich_text[0].text.content}
             </code>
           </pre>

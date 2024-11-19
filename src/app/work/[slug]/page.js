@@ -38,29 +38,22 @@ export default async function ProjectPage({ params }) {
   }
 
   const title = page.properties.Title?.title[0]?.plain_text;
-  const description = page.properties.Description?.rich_text[0]?.plain_text;
   const client = page.properties.Client?.rich_text[0]?.plain_text;
-  const coverImage = page.cover?.external?.url || page.cover?.file?.url;
 
   const blocks = await notion.blocks.children.list({
     block_id: page.id,
   });
 
   return (
-    <section className="flex flex-col items-center gap-8 w-screen px-4 md:px-0">
+    <section className="flex flex-col items-center gap-4 w-screen px-4 md:px-0">
       <div className="flex flex-col items-center">
-        {client && <span className="text-gray-500 text-sm mb-2">{client}</span>}
-        <h1 className="text-xl md:text-3xl font-bold">{title}</h1>
+        {client && (
+          <span className="text-content text-opacity-20 text-sm mb-2">
+            {client}
+          </span>
+        )}
+        <h1 className="text-xl md:text-4xl font-bold">{title}</h1>
       </div>
-      <div className="relative aspect-video h-96 rounded-lg overflow-hidden">
-        <NotionImage
-          pageId={page.id}
-          alt={title || "Project cover"}
-          className="object-cover aspect-video"
-          initialUrl={page.cover?.file?.url || page.cover?.external?.url}
-        />
-      </div>
-
       <div className="w-full max-w-prose">
         <NotionRenderer blocks={blocks.results} />
       </div>
