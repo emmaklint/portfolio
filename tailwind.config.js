@@ -8,14 +8,16 @@ module.exports = {
   darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
-      colors: {
-        lightBackground: "#f5f4ef",
-        lightForeground: "#3a3838",
-        darkBackground: "#0a0a0a",
-        darkForeground: "ededed",
-      },
       fontFamily: {
         sans: ["var(--font-work-sans)"],
+      },
+      backgroundColor: {
+        surface: "var(--surface-base)",
+        action: "var(--action-base)",
+      },
+      textColor: {
+        content: "var(--content-base)",
+        action: "var(--action-base)",
       },
     },
   },

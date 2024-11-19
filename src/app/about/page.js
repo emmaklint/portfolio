@@ -67,7 +67,7 @@ export default function About() {
                     <li key={index} className="inline-block ">
                       <span
                         key={index}
-                        className="text-sm bg-orange-100 mr-2 mb-2 px-2 py-1 text-orange-600 font-medium rounded-lg"
+                        className="text-sm bg-action mr-2 px-2 py-1 text-white font-medium rounded-lg"
                       >
                         {tool}
                         {/* {index !== tags.length - 1 && <span className="mx-2">•</span>} */}

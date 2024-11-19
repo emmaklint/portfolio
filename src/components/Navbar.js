@@ -12,7 +12,7 @@ const NavLink = ({ href, children, onClick }) => {
   return (
     <Link
       href={href}
-      className={`font-semibold hover:text-orange-700 text-4xl md:text-2xl ${
+      className={`font-semibold hover:text-action text-4xl md:text-2xl ${
         isActive ? "underline underline-offset-8" : ""
       }`}
       onClick={onClick}
@@ -68,9 +68,11 @@ const DrawerMenu = ({ isOpen, onClose }) => {
               Work
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink href="/blog" onClick={onClose}>Blog</NavLink>
-          </li> */}
+          <li>
+            <NavLink href="/playground" onClick={onClose}>
+              Playground
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -122,13 +124,13 @@ const Navbar = () => {
           <li>
             <NavLink href="/work">Work</NavLink>
           </li>
-          {/* <li>
-            <NavLink href="/blog">Blog</NavLink>
-          </li> */}
+          <li>
+            <NavLink href="/playground">Playground</NavLink>
+          </li>
           <li>
             <button
               onClick={toggleTheme}
-              className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded p-2"
+              className="bg-action text-content rounded p-2"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (

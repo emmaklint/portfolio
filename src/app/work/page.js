@@ -59,12 +59,12 @@ function Card({ page }) {
       <div className="flex flex-col gap-2">
         {client && <span className="text-sm">{client}</span>}
         {title && <h2 className="text-base md:text-xl font-bold">{title}</h2>}
-        {description && <p className="text-gray-600">{description}</p>}
+        {description && <p className="">{description}</p>}
         <div className="">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="text-sm bg-orange-100 mr-2 px-2 py-1 text-orange-600 font-medium rounded-lg"
+              className="text-sm bg-action mr-2 px-2 py-1 text-white font-medium rounded-lg"
             >
               {tag.name}
               {/* {index !== tags.length - 1 && <span className="mx-2">•</span>} */}
@@ -75,7 +75,7 @@ function Card({ page }) {
       {slug && (
         <Link
           href={`/work/${slug}`}
-          className="group inline-flex items-center gap-1 font-medium text-gray-800 transition-colors duration-200 hover:text-orange-700"
+          className="group inline-flex items-center gap-1 font-medium transition-colors duration-200 hover:text-action"
         >
           Read more
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

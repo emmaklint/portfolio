@@ -3,24 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --action-base: rgb(242, 139, 130);
+  --surface-base: rgb(253, 246, 243);
+  --content-base: rgb(58, 58, 58);
 }
 
 [data-theme="dark"] {
-  --background: #1a202c;
-  --foreground: #ffffff;
+  --action-base: rgb(139, 62, 62);
+  --surface-base: rgb(35, 35, 35);
+  --content-base: rgb(255, 255, 255);
 }
 
 /* Future themes can be added here */
 [data-theme="party"] {
-  --background: #e0adad;
-  --foreground: #ce2727;
+  --action-base: rgb(242, 139, 130);
+  --surface-base: rgb(255, 209, 193);
+  --content-base: rgb(139, 62, 62);
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--surface-base);
+  color: var(--content-base);
   visibility: hidden;
 }
 
@@ -32,4 +35,8 @@ body[data-theme-set] {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+p {
+  color: color-mix(in srgb, var(--content-base) 80%, var(--surface-base));
 }
