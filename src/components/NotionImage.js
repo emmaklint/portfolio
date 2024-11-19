@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
-export default function NotionImage({ pageId, alt, className, initalUrl }) {
-  const [imageUrl, setImageUrl] = useState(null);
+export default function NotionImage({ pageId, alt, className, initialUrl }) {
+  const [imageUrl, setImageUrl] = useState(initialUrl);
   const [expiryTime, setExpiryTime] = useState(null);
 
   const fetchNewUrl = async () => {
-    // Only fetch new URL if current one is expired
     if (imageUrl && (!expiryTime || new Date(expiryTime) > new Date())) {
       return;
     }
@@ -35,7 +33,7 @@ export default function NotionImage({ pageId, alt, className, initalUrl }) {
   }, [expiryTime, pageId]);
 
   return imageUrl ? (
-    <Image src={imageUrl} alt={alt} fill className={className} priority />
+    <img src={imageUrl} alt={alt} className={className} />
   ) : (
     <div className="bg-orange-50 h-full" />
   );

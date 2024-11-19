@@ -17,18 +17,20 @@ const getNotionProperty = (properties, propertyName, type = "rich_text") => {
   return property.rich_text[0]?.plain_text || null;
 };
 
-// Helper to get cover image URL
-const getCoverImage = (page) => {
-  if (!page.cover) return null;
+// Helper to get image URL from a custom property
+const getImageUrl = (properties, propertyName) => {
+  const property = properties[propertyName];
+  if (!property) return null;
 
   // Handle external URLs
-  if (page.cover.type === "external") {
-    return page.cover.external.url;
+  if (property.type === "external") {
+    return property.external.url;
   }
 
   // Handle uploaded files
-  if (page.cover.type === "file") {
-    return page.cover.file.url;
+  if (property.type === "files") {
+    console.log(property.file);
+    return property.files[0].file.url;
   }
 
   return null;
@@ -45,16 +47,13 @@ function Card({ page }) {
   const description = getNotionProperty(page.properties, "Description");
   const tags = getMultiSelect(page.properties, "Tags");
   const slug = getNotionProperty(page.properties, "Slug");
+  const imageUrl = getImageUrl(page.properties, "Image");
+  console.log(imageUrl);
 
   return (
     <div key={page.id} className="flex flex-col gap-6">
-      <div className="relative h-80 rounded-lg overflow-hidden">
-        <NotionImage
-          pageId={page.id}
-          alt={title || "Project cover"}
-          className="object-cover aspect-video"
-          initialUrl={page.cover?.file?.url || page.cover?.external?.url}
-        />
+      <div className="relative rounded-lg overflow-hidden align-middle">
+        <NotionImage initialUrl={imageUrl} className="w-full object-cover" />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -76,8 +75,7 @@ function Card({ page }) {
       {slug && (
         <Link
           href={`/work/${slug}`}
-          className="group inline-flex items-center gap-1 font-medium text-gray-800 transition-colors duration-200 hover:text-orange-700
-"
+          className="group inline-flex items-center gap-1 font-medium text-gray-800 transition-colors duration-200 hover:text-orange-700"
         >
           Read more
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
