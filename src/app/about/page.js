@@ -22,31 +22,30 @@ export default function About() {
             <p className="mb-2 md:mb-4 font-sans text-lg">
               I hold a Master&apos;s Degree in Media Technology and Interaction
               Design from KTH Royal Institute of Technology, where I developed a
-              fascination for the field of human-computer interaction. As a
-              design and front-end development consultant, I strong foundation
-              in user-centered design and cutting-edge bridge the gap between
-              design and code, creating intuitive, seamless user experiences. I
-              specialize in crafting scalable design systems and translating
-              creative visions into functional, responsive applications. My work
-              is driven by a passion for both aesthetics and functionality,
-              ensuring that every project I touch not only looks great but works
-              perfectly across all devices.
+              fascination for human-computer interaction. As a design and
+              front-end development consultant, I have a strong foundation in
+              user-centered design and bridge the gap between design and code,
+              creating intuitive, seamless user experiences. I specialize in
+              crafting scalable design systems and turning creative visions into
+              functional, responsive applications. My work is driven by a
+              passion for both aesthetics and functionality, ensuring every
+              project I tackle both looks beautiful and works flawlessly across
+              all devices.
             </p>
             <p className="mb-2 md:mb-4 font-sans text-lg">
-              I thrive in collaborative environments, where teams work across
+              I thrive in collaborative environments where teams work across
               disciplines to bring ideas to life. I&apos;m passionate about
-              continuous feedback loops, incorporating real-time insights from
-              users to refine and improve designs. I believe that the best
-              solutions emerge when creativity and technical insights are
-              combined with a deep understanding of the people using the
-              product.
+              continuous feedback loops and use real-time user insights to
+              refine and improve designs. I believe the best solutions emerge
+              when we combine creativity and technical expertise with a deep
+              understanding of end users.
             </p>
             <p className="mb-2 md:mb-4 font-sans text-lg">
               Outside of work, I enjoy spending time with my family, exploring
-              new hobbies, and taking on creative projects. Whether it&apos;s
+              new hobbies, and taking on creative projects. Whether I&apos;m
               experimenting with new tools, diving into a good book, or enjoying
-              outdoor adventures, I&apos;m always looking for new ways to stay
-              inspired and curious.
+              outdoor adventures, I&apos;m always seeking fresh sources of
+              inspiration and nurturing my curiosity.
             </p>
           </div>
           <div className="flex flex-col md:ml-8">
